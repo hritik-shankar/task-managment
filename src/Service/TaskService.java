@@ -16,14 +16,21 @@ public class TaskService {
     private FilterByTaskStatus filterByTaskStatus;
     private Map<String, Filtering> filterRegistry = new HashMap<>();
 
-    public TaskService(TaskDao taskDao, FilterByTaskStatus filterByTaskStatus, FilterByDueDate filterByDueDate){
+    public TaskService(TaskDao taskDao,
+                       FilterByTaskStatus filterByTaskStatus,
+                       FilterByDueDate filterByDueDate){
         this.taskDao = taskDao;
         filterRegistry.put("DueDate", filterByDueDate);
-        filterRegistry.put("TaskStaus", filterByTaskStatus);
+        filterRegistry.put("TaskStatus", filterByTaskStatus);
 
     }
 
-    public void createTask(Integer taskId, Integer userId, String title, TaskStatus taskStatus, Boolean isComplete, LocalDateTime dueTime){
+    public void createTask(Integer taskId,
+                           Integer userId,
+                           String title,
+                           TaskStatus taskStatus,
+                           Boolean isComplete,
+                           LocalDateTime dueTime){
         Task task = new Task(taskId, title, userId, taskStatus, isComplete, dueTime);
         taskDao.createTask(taskId, task);
     }

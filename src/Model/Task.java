@@ -7,19 +7,24 @@ import java.time.LocalDateTime;
 public class Task {
     private Integer taskId;
     private String title;
+    private Integer userId;
+    private boolean isComplete;
+
+    public void setTaskStatus(TaskStatus taskStatus) {
+        this.taskStatus = taskStatus;
+    }
+
+    private TaskStatus taskStatus;
 
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    private Integer userId;
-    private TaskStatus taskStatus;
-
     public void setComplete(boolean complete) {
         isComplete = complete;
     }
 
-    private boolean isComplete;
+
     private LocalDateTime dueTime;
 
     public Integer getTaskId() {

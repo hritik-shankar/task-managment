@@ -16,7 +16,7 @@ public class FilterByDueDate implements Filtering{
     public List<Task> filtering(String keyword) {
         Map<Integer, Task> taskList = taskDao.getTaskList();
 
-        if (taskList == null || taskList.isEmpty()) {
+        if (Objects.isNull(taskList) || taskList.isEmpty()) {
             return Collections.emptyList(); // Return empty list if no tasks
         }
 

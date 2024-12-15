@@ -37,5 +37,6 @@ public class TaskDao {
     public void markTaskComplete(Integer taskId){
         Task task = taskList.get(taskId);
         task.setComplete(true);
+        task.setTaskStatus(TaskStatus.COMPLETED);
     }
 }
